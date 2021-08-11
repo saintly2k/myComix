@@ -7,7 +7,7 @@ if($_GET['file']){
 	$base_file = $base_dir.$getfile;
 	dir_check($getfile);
 } else {
-	echo "정보가 없습니다.";
+	echo "No information.";
 	die(header("Location: ./"));
 }
 
@@ -152,7 +152,7 @@ if(is_file($bookmark_file) === true){
 		$next = $now + 1;
 		$pre = $now - 1;
 
-		$page = ceil(($now+1)/$maxview)-1;  //현재페이지
+		$page = ceil(($now+1)/$maxview)-1;  //Current Page
 
 		$recent = array();
 		if(is_file($recent_file) == true){
@@ -287,7 +287,7 @@ if($mode == "toon"){
 if($type != "pdf") {
 ?>
 function set_cover() {
-	document.getElementById("info").value = "설정중...";
+	document.getElementById("info").value = "Set...";
 	$.get( "bookmark.php?mode=set_cover&file=<?php echo encode_url($getfile); ?>", function( data ) {
 		document.getElementById("info").value = data;
 	});
@@ -301,7 +301,7 @@ function set_cover() {
 <table class="table table-borderless mb-2 p-0" width=100%>
 <tr>
 <td class="m-0 p-0 align-middle">
-<a OnClick="location.href='./index.php?dir=<?php echo encode_url($link_dir); ?>&page=<?php echo $page; ?>'"><font style="font-family: 'Gugi'; font-size: 2em;">마이코믹스</font></a>
+<a OnClick="location.href='./index.php?dir=<?php echo encode_url($link_dir); ?>&page=<?php echo $page; ?>'"><font style="font-family: 'Gugi'; font-size: 2em;">myComix <font></a>
 </td>
 <td class="m-0 p-0 align-middle" align="right">
 <button class="btn btn-sm" onclick="sub_toggle();">
@@ -337,12 +337,12 @@ function set_cover() {
 			</button>
 		</div>
 		<div class="btn-group" role="group">
-			<button class="btn btn-sm" onclick="location.replace('#<?php echo $bookmark; ?>');" id="load" value="위치저장">
+			<button class="btn btn-sm" onclick="location.replace('#<?php echo $bookmark; ?>');" id="load" value="Location">
 			<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-bookmark-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 			  <path fill-rule="evenodd" d="M4 0a2 2 0 0 0-2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4zm6.854 5.854a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
 			</svg>
 			</button>
-			<button class="btn btn-sm" onclick="save_bookmark();" id="save" value="위치저장">
+			<button class="btn btn-sm" onclick="save_bookmark();" id="save" value="Location">
 			<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-bookmark-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 			  <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
 			  <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z"/>
@@ -356,7 +356,7 @@ if($type != "pdf"){
 ?>
 <tr><td align="right">
 <br>
-<button class="btn btn-sm btn-success mt-2 p-0" onclick="set_cover();">이 파일의 첫번째 이미지를 커버로 설정</button>
+<button class="btn btn-sm btn-success mt-2 p-0" onclick="set_cover();"> Set the first image of this file to cover </button>
 </td></tr>
 <?php
 }
@@ -390,13 +390,13 @@ if($type != "pdf"){
 			 <?php
          }
 ?>
-<!-- 리스트로 돌아가기 시작 -->
+<!-- Start Returning to List -->
 <button type="button" class="btn btn-outline-secondary btn-sm mr-1" OnClick="location.replace('./index.php?dir=<?php echo encode_url($link_dir); ?>&page=<?php echo $page; ?>')">
 <svg width="3em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
 </svg>
 </button>
-<!-- 리스트로 돌아가기 끝 -->
+<!-- Return to List End -->
 <?php
          if (count($totalfile) == $next) {
 			 ?>
@@ -677,7 +677,7 @@ if($type != "pdf"){
 						}
 						$image_counter=$image_counter-1;
 					if($loaded < $total){
-						echo "모든 파일 로딩에 실패했습니다. 인식할 수 없는 파일이 있습니다.";
+						echo "All file loading failed. An unrecognized file exists.";
 					}
                ?>
             </p>
@@ -725,7 +725,7 @@ function change_bright(){
 	$(".lg-image").css('-webkit-filter', contrast_value);
 	$(".lg-image").css('filter', bright_value);
 	$(".lg-image").css('filter', contrast_value);
-  	document.getElementById("info").value = "밝기 " + bright_counter;
+  	document.getElementById("info").value = "Brightness " + bright_counter;
 }
 $('#lightgallery').on('onAfterOpen.lg',function(event){
     change_bright();
@@ -735,7 +735,7 @@ $('#lightgallery').on('onAfterSlide.lg',function(event){
 });
 
 function save_bookmark() {
-  	document.getElementById("info").value = "저장중";
+  	document.getElementById("info").value = "Storage";
 <?php
 if ($mode == "toon"){
 ?>
