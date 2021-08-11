@@ -73,7 +73,7 @@ $iterator = new DirectoryIterator($base_dir);
 } elseif($_POST['mode'] == "config_change"){
 	$config_output = "<?php\n\$base_dir = \"".$_POST['base_dir']."\";\n\$maxview = \"".$_POST['maxview']."\";\n\$max_autosave = \"".$_POST['max_autosave']."\";\n\$max_bookmark = \"".$_POST['max_bookmark']."\";\n\$use_cover = \"".$_POST['use_cover']."\";\n\$use_listcover = \"".$_POST['use_listcover']."\";\n?>";
 	file_put_contents("config.php", $config_output);
-	echo "<h1>config파일이 수정되었습니다. 3초 후 새로고침합니다.</h1>";	
+	echo "<h1> The config file has been modified. The page will refresh after 3 seconds.</h1>";	
 	echo("<meta http-equiv=\"refresh\" content=\"3; url=".$_SERVER["PHP_SELF"]."\">"); 
 } else {
 ?>
@@ -99,31 +99,31 @@ $iterator = new DirectoryIterator($base_dir);
 	</style>
 </head>
 <body class="text-center">
-<br><div style="font-family: 'Gugi'; font-size:2.5em;" onclick="location.href='index.php'">마이코믹스</div><br>
+<br><div style="font-family: 'Gugi'; font-size:2.5em;" onclick="location.href='index.php'">myComix</div><br>
 <ul class="nav nav-tabs">
   <li class="nav-item m-0 p-0">
     <a class="nav-link active"  data-toggle="tab" href="#link"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-link-45deg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
   <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>
-</svg> 링크</a>
+</svg> Link</a>
   </li>
   <li class="nav-item m-0 p-0">
     <a class="nav-link"  data-toggle="tab" href="#config"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
   <path fill-rule="evenodd" d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
-</svg> 설정</a>
+</svg> Settings</a>
   </li>
   </li>
   <li class="nav-item m-0 p-0">
     <a class="nav-link"  data-toggle="tab" href="#group"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-</svg> 사용자</a>
+</svg> User</a>
   </li>
   <li class="nav-item m-0 p-0">
     <a class="nav-link"  data-toggle="tab" href="#folder"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M9.828 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91H9v1H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181L15.546 8H14.54l.265-2.91A1 1 0 0 0 13.81 4H9.828zm-2.95-1.707L7.587 3H2.19c-.24 0-.47.042-.684.12L1.5 2.98a1 1 0 0 1 1-.98h3.672a1 1 0 0 1 .707.293z"/>
   <path fill-rule="evenodd" d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"/>
-</svg> 폴더</a>
+</svg> Folders</a>
   </li>
 </ul>
 <br>
@@ -136,7 +136,7 @@ $iterator = new DirectoryIterator($base_dir);
 	<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
   <path fill-rule="evenodd" d="M2 15v-1c0-1 1-4 6-4s6 3 6 4v1H2zm6-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-	</svg> 사용자 추가
+	</svg> Add a User
 	</div>
 	</div>
 </a>
@@ -146,7 +146,7 @@ $iterator = new DirectoryIterator($base_dir);
 	<div class="card-body text-white m-1 p-1">
 	<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-lightning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/>
-</svg> 업데이트실행
+</svg> Run an Update
 	</div>
 	</div>
 </a>
@@ -169,7 +169,7 @@ echo substr($readme, strpos($readme, "<h2 id=\"-1\">업데이트 정보</h2>"));
 	<div class="form-group card-header bg-success text-white m-0 p-2">	<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-gear" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
   <path fill-rule="evenodd" d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
-</svg> 설정 변경
+</svg> Change Settings
 </div>
 <?php
 	if($max_bookmark == null){
@@ -191,36 +191,36 @@ echo substr($readme, strpos($readme, "<h2 id=\"-1\">업데이트 정보</h2>"));
 		<td class="m-1 p-1 text-left"><input type="number" name="maxview" class="form-control mb-2 pb-2" placeholder="<?php echo $maxview; ?>" value="<?php echo $maxview; ?>" required></td>
 		</tr>
 		<tr class="border-bottom border-light">
-		<td class="m-1 p-1 text-right">최대자동저장</td>
+		<td class="m-1 p-1 text-right"> maximum automatic storage </td>
 		<td class="m-1 p-1 text-left"><input type="number" name="max_autosave" class="form-control mb-2 pb-2" placeholder="<?php echo $max_autosave; ?>" value="<?php echo $max_autosave; ?>" required></td>
 		</tr>
 		<tr class="border-bottom border-light">
-		<td class="m-1 p-1 text-right">최대북마크</td>
+		<td class="m-1 p-1 text-right"> Max Bookmark </td>
 		<td class="m-1 p-1 text-left"><input type="number" name="max_bookmark" class="form-control mb-2 pb-2" placeholder="<?php echo $max_bookmark; ?>" value="<?php echo $max_bookmark; ?>" required></td>
 		</tr>
 		<tr class="border-bottom border-light">
-		<td class="m-1 p-1 text-right">폴더커버</td>
+		<td class="m-1 p-1 text-right"> Foldercover </td>
 		<td class="m-1 p-1 text-left">
 			<div class="form-check form-check-inline ml-2">
 				<input class="form-check-input" type="radio" id="use_cover_inlineCheckbox1" name="use_cover" value="y" <?php if($use_cover == "y"){ echo "checked"; } ?>>
-				<label class="form-check-label" for="use_cover_inlineCheckbox1">사용</label>
+				<label class="form-check-label" for="use_cover_inlineCheckbox1"> Enable </label>
 			</div>
 			<div class="form-check form-check-inline ml-2">
 				<input class="form-check-input" type="radio" id="use_cover_inlineCheckbox2" name="use_cover" value="n" <?php if($use_cover == "n"){ echo "checked"; } ?>>
-				<label class="form-check-label" for="use_cover_inlineCheckbox2">사용안함</label>		
+				<label class="form-check-label" for="use_cover_inlineCheckbox2"> Disable </label>		
 			</div>
 		</td>
 		</tr>
 		<tr>
-		<td class="m-1 p-1 text-right">리스트커버</td>
+		<td class="m-1 p-1 text-right"> list cover </td>
 		<td class="m-1 p-1 text-left">
 			<div class="form-check form-check-inline ml-2">
 				<input class="form-check-input" type="radio" id="use_listcover_inlineCheckbox1" name="use_listcover" value="y" <?php if($use_listcover == "y"){ echo "checked"; } ?>>
-				<label class="form-check-label" for="use_listcover_inlineCheckbox1">사용</label>
+				<label class="form-check-label" for="use_listcover_inlineCheckbox1"> Enable </label>
 			</div>
 			<div class="form-check form-check-inline ml-2">
 				<input class="form-check-input" type="radio" id="use_listcover_inlineCheckbox2" name="use_listcover" value="n" <?php if($use_listcover == "n"){ echo "checked"; } ?>>
-				<label class="form-check-label" for="use_listcover_inlineCheckbox2">사용안함</label>		
+				<label class="form-check-label" for="use_listcover_inlineCheckbox2"> Disable </label>		
 			</div>
 		</td>
 		</tr>
@@ -228,7 +228,7 @@ echo substr($readme, strpos($readme, "<h2 id=\"-1\">업데이트 정보</h2>"));
 		</li>
 		<li class="m-0 p-0 list-group-item">
 			<input type="hidden" name="mode" value="config_change">
-			<button class="btn m-0 p-1 btn-success btn-block btn-sm" type="submit">설정변경</button>
+			<button class="btn m-0 p-1 btn-success btn-block btn-sm" type="submit"> Change settings </button>
 		</li>
 	</ul>
 </form>
@@ -241,7 +241,7 @@ echo substr($readme, strpos($readme, "<h2 id=\"-1\">업데이트 정보</h2>"));
 	<form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method = "post">
 	<div class="form-group card-header bg-success text-white m-0 p-2"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-people" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-</svg> 유저그룹관리</div>
+</svg> User Group Management </div>
 	<ul class="list-group list-group-flush">
 <?php
 $user_file = "./src/user.php";
@@ -277,7 +277,7 @@ foreach ($user_list as $user){
 						</div>
 						<div class="form-check form-check-inline">
 						  <input class="form-check-input" type="radio" id="<?php echo $user['id']; ?>_inlineCheckbox4" name="<?php echo $user['id']; ?>_group" value="delete">
-						  <label class="form-check-label" for="<?php echo $user['id']; ?>_inlineCheckbox4">삭제</label>
+						  <label class="form-check-label" for="<?php echo $user['id']; ?>_inlineCheckbox4"> Delete </label>
 						</div>
 		</li>
 <?php
@@ -285,7 +285,7 @@ foreach ($user_list as $user){
 ?>
 		<li class="m-0 p-0 list-group-item">
 			<input type="hidden" name="mode" value="group_change">
-			<button class="btn m-0 p-1 btn-success btn-block btn-sm" type="submit">유저그룹수정</button>
+			<button class="btn m-0 p-1 btn-success btn-block btn-sm" type="submit"> modifying user groups </button>
 		</li>
 	</ul>
 	</form>
@@ -297,7 +297,7 @@ foreach ($user_list as $user){
 	<div class="form-group card-header bg-success text-white m-0 p-2"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-folder-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M9.828 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91H9v1H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181L15.546 8H14.54l.265-2.91A1 1 0 0 0 13.81 4H9.828zm-2.95-1.707L7.587 3H2.19c-.24 0-.47.042-.684.12L1.5 2.98a1 1 0 0 1 1-.98h3.672a1 1 0 0 1 .707.293z"/>
   <path fill-rule="evenodd" d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"/>
-</svg> 폴더권한관리</div>
+</svg> foldersmanaging </div>
 	<ul class="list-group list-group-flush">
 <?php
 $iterator = new DirectoryIterator($base_dir);
@@ -355,7 +355,7 @@ foreach ($dir_list as $dir_mode){
 ?>
 		<li class="m-0 p-0 list-group-item">
 			<input type="hidden" name="mode" value="mode_change">
-			<button class="m-0 p-1 btn btn-success btn-block btn-sm" type="submit">폴더권한수정</button>
+			<button class="m-0 p-1 btn btn-success btn-block btn-sm" type="submit"> Modifying Folder Rights </button>
 		</li>
 	</ul>
 	</form>
@@ -366,7 +366,7 @@ foreach ($dir_list as $dir_mode){
 <?php
 }
 } else {
-	echo "현재 로그인한 사용자는 관리자가 아닙니다. 3초후 초기화면으로 돌아갑니다.";
+	echo "The currently logged in user is not an administrator. Three seconds later, you will return to the Initial Screen.";
 	echo("<meta http-equiv=\"refresh\" content=\"3; url=index.php\">"); 
 }
 ?>
