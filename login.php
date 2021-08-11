@@ -4,7 +4,7 @@ session_start(["cache_expire"=> 43200, "gc_maxlifetime"=> 43200]);
 if($_POST['mode'] == "make_id"){
 if(is_dir("./src") === false){	
 	if (!mkdir("./src", 0777, true)) {
-		echo "<h1> Failed to create src folder. Please check if you gave all the permissions to 777. </h1><br>";
+		echo "<h1> Failed to create src folder. Please check if you gave all the permissions to 777.</h1><br>";
 	}
 }
 	$user_file = "./src/user.php";
