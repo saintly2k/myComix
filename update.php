@@ -6,55 +6,55 @@ $version = json_decode(file_get_contents("version.json"), true);
 $server_version =  json_decode(file_get_contents("https://raw.githubusercontent.com/imueRoid/myComix/master/version.json"), true); 
 
 #if($server_version['index'] > $version['index'] || $server_version['viewer'] > $version['viewer']) {
-	echo "업데이트파일을 가져옵니다.<br><br>";
+Import the echo "Update File".<br><br>";
 
-	$new_file = file_get_contents("https://codeload.github.com/imueRoid/myComix/zip/master");
+$new_file = file_get_contents ("https://codeload.github.com/imueRoid/myComix/zip/master");
 $fail = 0;
-	if($new_file === false) {
-		echo "업데이트파일을 가져오는데 실패했습니다.<br>";
-		echo "잠시 후 다시 시도해주세요.<br>";
-	} else {
-		echo "업데이트 파일<br> 용량: ".strlen($new_file)."byte, hash: ".hash("sha1", $new_file)."<br>";
-		$write_file = file_put_contents("./update.zip", $new_file);
-		echo "기록한 파일<br> 용량: ".$write_file."byte, hash: ".hash("sha1", file_get_contents("./update.zip"))."<br>";
-		if($write_file != strlen($new_file) || hash("sha1", file_get_contents("./update.zip")) != hash("sha1", $new_file))  {
-			echo "업데이트파일을 서버에 기록하는데 실패했습니다.<br>";
-			echo "잠시 후 다시 시도해주세요.<br>";
-		} else {
-			$zip = new ZipArchive;
-			if ($zip->open('update.zip') === TRUE) {
-				for($i = 1; $i < $zip->numFiles; $i++) {
-					$file_name = str_replace($zip->getNameIndex(0), "", $zip->getNameIndex($i));
-					if(is_file("config.php") && $file_name == "config.php") {
-						echo "config.php 파일은 교체하지 않습니다.<br>";
-					} else {
-						$update_temp = $zip->getFromIndex($i);
-						echo $file_name."파일 해시: ".hash("sha1", $update_temp).", ";
-						$write_file = file_put_contents($file_name, $update_temp);
-						echo "기록한 파일 해시: ".hash("sha1", file_get_contents($file_name));
-						
-						if(hash("sha1", file_get_contents($file_name)) == hash("sha1", $update_temp)){
-							echo " -------------- OK <br>";
-						} else {
-							echo " -------------- Fail <br>";
-							$fail++;
-						}
-					}
-				}
-					$zip->close();
-					unlink("update.zip");
-			} else {
-				echo '업데이트 파일의 압축해제에 실패했습니다. 잠시 후 다시 시도해주세요.<br>';
-			}
-		}
-	}
-	
-		
+if($new_file === false) {
+echo "Failed to import update file.<br>";
+echo "Please try again in a second.
+} else {
+echo "Update File [br] Capacity: ".strlen ($new_file)." byte, hash: ". hash ("sha1", $new_file)."
+$write_file = file_put_contents ("./update.zip", $new_file);
+echo "Recorded File [br] Capacity: ".. write_file."byte, hash: ". hash ("sha1", file_get_contents ("./update.zip).";
+if($write_file != strlen($new_file) file_get_contents: [*]
+echo "Failed to record the update file to the server.<br>";
+echo "Please try again in a second.
+} else {
+$zip = new ZipArchive;
+if ($zip->open('update.zip') === TRUE) {
+for($i = 1; $i < $zip->numFiles; $i++) {
+$file_name = str_replace($zip->getNameIndex(0), "", $zip->getNameIndex($i));
+if(is_file("config.php") && $file_name == "config.php") {
+echo "config.php files will not be replaced.<br>";
+} else {
+$update_temp = $zip->getFromIndex($i);
+echo $file_name." File Hash: ".hash ("sha1", $update_temp)", ";.
+$write_file = file_put_contents($file_name, $update_temp);
+echo "Hash of the recorded file: ".hash ("sha1", file_get_contents ($file_name);
+
+if(hash("sha1", file_get_contents($file_name)) == hash("sha1", $update_temp)){
+echo " — OK <br>";
+} else {
+echo " — Fail <br>";
+$fail++;
+Section
+Section
+Section
+$zip->close();
+unlink("update.zip");
+} else {
+echo 'Failed to decompress update file. Please try again in a second.
+Section
+Section
+Section
+
+
 #} if($server_version['index'] < $version['index'] && $server_version['viewer'] < $version['viewer']) {
-#	echo "업데이트가 필요하지 않습니다.<br>";
-#}
+The Dong-A Ilbo, Wednesday, Wednesday, and Wednesday,	echo.<br>";
+#.
 if($fail > 0) {
-	echo "하나 이상의 파일 쓰기에 실패했습니다. 권한을 확인하세요.";
-}
-echo "<br><br><a href=index.php>홈으로 돌아갑니다.</a>"
+echo "One or more files write failed. Check your authority."
+Section
+Back to echo.</a>"
 ?>
