@@ -8,7 +8,7 @@ if($_GET['file'] && $_GET['imgfile']){
 	$base_file = $base_dir.$getfile;
 	dir_check($getfile);
 } else {
-	echo "No information.";
+	echo "No information. ";
 	die(header("Location: ./"));
 }
 
