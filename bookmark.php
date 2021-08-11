@@ -74,7 +74,7 @@ if($_GET['mode'] == "delete_bookmark"){
 		$cover_output = imagecreatefromstring(file_get_contents($list[0]));
 	}
 	imagejpeg($cover_output, $cover_file);
-	echo "Set";
+	echo "Set ";
 } else {
 	$bookmark_arr = array();
 	if(is_file($bookmark_file) === true){
