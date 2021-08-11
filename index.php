@@ -220,7 +220,7 @@ if(is_dir($dir) == true){
 	$maxlist = count($file_list) + count($title_list) + count($dir_list);
 	$startview = 0;
 	if(!$_GET['page']){
-		$paging = 0; //현재 보여주는 페이지
+		$paging = 0; //Current Page
 	}  else {
 		$paging = (int)$_GET['page'];
 	}
@@ -232,7 +232,7 @@ if(is_dir($dir) == true){
 	}
 	$updir = "";
 } else {
-	echo "설정된 dir이 없거나 읽을 수 없습니다. 다시 설정하세요.<br>"; 
+	echo "The dir set does not exist or cannot be read. Please reset. <br>"; 
 }
 ?>
 	<div>
@@ -240,7 +240,7 @@ if(is_dir($dir) == true){
 	<table class="table table-borderless m-0 p-0" width="100%">
 	<tr>
 	<td class="m-0 p-0 align-middle" align="left">
-		<div style="font-family: 'Gugi'; font-size:2.5em;" onclick="location.replace('index.php')">마이코믹스</div>
+		<div style="font-family: 'Gugi'; font-size:2.5em;" onclick="location.replace('index.php')">myComix</div>
 	</td>
 	<td class="m-0 p-0 align-middle" align="right">	
 <?php
@@ -323,8 +323,8 @@ for($count=0;$count < count($bookmark_arr); $count++){
 	<tr>
 	<td class="m-0 p-0" align="left">
 	<span class="badge badge-light badge-sm" style="font-family: 'Nanum Gothic', sans-serif;">
-	[ <?php echo $_SESSION["user_id"];?> ]로 로그인되었습니다.</span>
-	<?php if($_SESSION["user_group"] == "admin") { echo "<a class=\"badge badge-danger badge-sm\" href=admin.php>관리자페이지</a>"; }?> <a class="badge badge-danger badge-sm" href="login.php?mode=logout">로그아웃</a><br><br>
+	[ You are logged in as <?php echo $_SESSION["user_id"];?> ] </span>
+	<?php if($_SESSION["user_group"] == "admin") { echo "<a class=\"badge badge-danger badge-sm\" href=admin.php>Admin Control Panel</a>"; }?> <a class="badge badge-danger badge-sm" href="login.php?mode=logout">Logout</a><br><br>
 	</a>
 	</td>
 	</tr>
@@ -345,7 +345,7 @@ if ($use_cover == "y"){
 			if($recent[$getdir] != null){
 ?>
 <tr><td class="m-0 p-0">
-	<button class="btn btn-warning btn-sm" style="font-family: 'Nanum Gothic', sans-serif;" onclick="location.href='./viewer.php?file=<?php echo encode_url($getdir."/".$recent[$getdir]); ?>'">[<?php echo $recent[$getdir];?>]까지 읽음</button>
+	<button class="btn btn-warning btn-sm" style="font-family: 'Nanum Gothic', sans-serif;" onclick="location.href='./viewer.php?file=<?php echo encode_url($getdir."/".$recent[$getdir]); ?>'">[<?php echo $recent[$getdir];?>] Read To </button>
 </td></tr>
 <?php
 			} else {
@@ -369,13 +369,13 @@ if ($use_cover == "y"){
 			<button class="btn btn-primary m-1" onclick="location.replace('index.php?dir=<?php echo encode_url($updir);?>&page=<?php echo $_GET['uppage']; ?>')">
 			<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-90deg-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 			<path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z"/>
-			</svg> 상위폴더로
+			</svg> to the parent folder
 			</button>
 			<?php
 			if(count($file_list) > 0){
 			?>
 			</td><td align=right>
-			<button onclick="location.replace('index.php?<?php if($_GET['sort'] == "nameasc" || $_GET['sort'] == null) { echo "sort=namedesc&"; } ?>dir=<?php echo encode_url($getdir);?>&page=<?php echo $_GET['page']; ?>')" class="btn btn-sm btn-<?php if($_GET['sort'] != "" && $_GET['sort'] != null && $_GET['sort'] != "namedesc" && $_GET['sort'] != "nameasc"){ ?>outline-<?php } ?>info m-0 p-1">기본
+			<button onclick="location.replace('index.php?<?php if($_GET['sort'] == "nameasc" || $_GET['sort'] == null) { echo "sort=namedesc&"; } ?>dir=<?php echo encode_url($getdir);?>&page=<?php echo $_GET['page']; ?>')" class="btn btn-sm btn-<?php if($_GET['sort'] != "" && $_GET['sort'] != null && $_GET['sort'] != "namedesc" && $_GET['sort'] != "nameasc"){ ?>outline-<?php } ?>info m-0 p-1"> Default
 			<?php if($_GET['sort'] == "namedesc") { ?>
 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-sort-alpha-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M4 14a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-1 0v11a.5.5 0 0 0 .5.5z"/>
@@ -393,7 +393,7 @@ if ($use_cover == "y"){
 
 
 
-			<button onclick="location.replace('index.php?sort=<?php if($_GET['sort'] == "timeasc") { echo "timedesc"; } else { echo "timeasc"; } ?>&dir=<?php echo encode_url($getdir);?>&page=<?php echo $_GET['page']; ?>')" class="btn btn-sm btn-<?php if($_GET['sort'] != "timeasc" && $_GET['sort'] != "timedesc"){ ?>outline-<?php } ?>info ml-1 p-1">시간
+			<button onclick="location.replace('index.php?sort=<?php if($_GET['sort'] == "timeasc") { echo "timedesc"; } else { echo "timeasc"; } ?>&dir=<?php echo encode_url($getdir);?>&page=<?php echo $_GET['page']; ?>')" class="btn btn-sm btn-<?php if($_GET['sort'] != "timeasc" && $_GET['sort'] != "timedesc"){ ?>outline-<?php } ?>info ml-1 p-1"> Time
 			<?php if($_GET['sort'] == "timedesc") { ?>
 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-sort-numeric-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M4 14a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-1 0v11a.5.5 0 0 0 .5.5z"/>
@@ -408,7 +408,7 @@ if ($use_cover == "y"){
 </svg>
 			<?php } ?>
 			</button>
-			<button onclick="location.replace('index.php?sort=<?php if($_GET['sort'] == "sizeasc") { echo "sizedesc"; } else { echo "sizeasc"; } ?>&dir=<?php echo encode_url($getdir);?>&page=<?php echo $_GET['page']; ?>')" class="btn btn-sm btn-<?php if($_GET['sort'] != "sizeasc" && $_GET['sort'] != "sizedesc"){ ?>outline-<?php } ?>info ml-1 mr-1 p-1">크기
+			<button onclick="location.replace('index.php?sort=<?php if($_GET['sort'] == "sizeasc") { echo "sizedesc"; } else { echo "sizeasc"; } ?>&dir=<?php echo encode_url($getdir);?>&page=<?php echo $_GET['page']; ?>')" class="btn btn-sm btn-<?php if($_GET['sort'] != "sizeasc" && $_GET['sort'] != "sizedesc"){ ?>outline-<?php } ?>info ml-1 mr-1 p-1"> Size
 			<?php if($_GET['sort'] == "sizedesc") { ?>
 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-sort-up-alt" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M3 14a.5.5 0 0 0 .5-.5v-10a.5.5 0 0 0-1 0v10a.5.5 0 0 0 .5.5z"/>
@@ -963,16 +963,16 @@ if($use_listcover == "y"){
 <button class="btn btn-sm btn-light p-1">
 	<?php
 		if($server_version['index'] > $version['index']) {
-			echo "<a href='update.php' class='m-1 badge badge-sm badge-danger'>새버전(".$server_version['index'].")이 있습니다. 업데이트합니다.</a><br>";
+			echo "<a href='update.php' class='m-1 badge badge-sm badge-danger'> New Version(".$server_version['index'].") is available. update. </a><br>";
 		}
-		echo "<span class=badge>현재버전 {".$version['index']."}</span>";
+		echo "<span class=badge> Current Version {".$version['index']."}</span>";
 		?>
 </button>
 </td></tr><tr>
 <td width="100%" class="p-2" align="center">
   <div class="pagination pagination-sm justify-content-center pagination-outline-primary">
     <div class="page-item <?php if($dir == $base_dir) { echo "disabled"; } ?>">
-      <button class="page-link" onclick="location.replace('index.php?dir=<?php echo encode_url($updir);?>&page=<?php echo $_GET['uppage']; ?>')" tabindex="-1" aria-disabled="true">상위폴더로</button>
+      <button class="page-link" onclick="location.replace('index.php?dir=<?php echo encode_url($updir);?>&page=<?php echo $_GET['uppage']; ?>')" tabindex="-1" aria-disabled="true"> to the parent folder </button>
     </div>
     <div class="page-item <?php if($paging == 0) { echo "disabled"; } ?>">
 	</div>
