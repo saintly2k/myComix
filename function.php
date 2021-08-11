@@ -3,16 +3,16 @@ ini_set('display_errors', '0');
 session_start(["cache_expire"=> 43200, "gc_maxlifetime"=> 43200]);
 
 $version = json_decode(file_get_contents("version.json"), true);
-$server_version = json_decode(file_get_contents("https://raw.githubusercontent.com/imueRoid/myComix/master/version.json"), true); 
+$server_version = json_decode(file_get_contents("https://raw.githubusercontent.com/saintly2k/myComix_ENGLISH/master/version.json"), true); 
 
 if(!isset($_SESSION["user_id"]) || !isset($_SESSION["user_pass"]) || !isset($_SESSION["user_group"])) { 
 	echo("<script>location.replace('login.php?mode=fail');</script>"); 
 }
 
 if(is_dir("./src") === false){	
-	echo "<h1> 사용자파일의 이동을 시작합니다..</h1><br>";
+	echo "<h1> Start moving your files... </h1><br>";
 	if (!mkdir("./src", 0777, true)) {
-		echo "<h1> src폴더 생성에 실패했습니다. 권한을 모두 777로 주었는지 확인하세요.</h1><br>";
+		echo "<h1> Failed to create src folder. Please check if you gave all the permissions to 777. </h1><br>";
 	}
 	if(is_file('user.php') !== false) {
 		rename("user.php", "./src/user.php");
@@ -23,7 +23,7 @@ if(is_dir("./src") === false){
 			rename($fileinfo, "./src/".$fileinfo);
 		}
 	}
-	echo "<h1> 사용자파일의 이동이 끝났습니다..</h1>";
+	echo "<h1> The move of the user file is complete... </h1>";
 	echo("<script>location.replace('".$_SERVER['PHP_SELF']."');</script>"); 
 }
 
@@ -32,13 +32,13 @@ $autosave_file = "./src/".$_SESSION["user_id"]."_autosave.json";
 $recent_file = "./src/".$_SESSION["user_id"]."_recent.json";
 
 ################################################################################
-# 파일리스트 소트
+# File List Sort
 ################################################################################
 
 function n_sort($file_list) {
 	$filelist_sort = array();
 	foreach($file_list as $sort_file){
-		$n_sort = str_replace("화.zip", "", strtolower($sort_file));
+		$n_sort = str_replace("화.zip", "", strtolower($sort_file)); /* I have no idea what this means?! */
 		$n_sort = str_replace("권.zip", "", strtolower($n_sort));
 		$n_sort = str_replace("화.cbz", "", strtolower($n_sort));
 		$n_sort = str_replace("권.cbz", "", strtolower($n_sort));
@@ -54,7 +54,7 @@ function n_sort($file_list) {
 }
 
 ################################################################################
-# 파일리스트 소트 - 제목과 관계없이
+# File List Sort - Regardless of title
 ################################################################################
 
 function arr_sort($array, $key, $sort){
@@ -78,7 +78,7 @@ function arr_sort($array, $key, $sort){
 }
 
 ################################################################################
-# 접근권한이 있는지 확인 및 리모트폴더 여부 반환
+# Verify that you have access authority and return the remote folder.
 ################################################################################
 
 function dir_check($getdir) {
@@ -90,7 +90,7 @@ function dir_check($getdir) {
 		$dirmode_arr = array();
 		$dirmode_arr = json_decode(file_get_contents($getmodefile), true);
 		if($dirmode_arr[$_SESSION["user_group"]] !== 1) {
-			echo "권한이 없습니다. 3초 후 초기화면으로 돌아갑니다.<br>";
+			echo "You do not have permission. Three seconds later, you will return to the Initial Screen. <br>";
 			echo("<meta http-equiv=\"refresh\" content=\"3; url=index.php\">"); 
 			exit();
 		} else {
@@ -104,7 +104,7 @@ function dir_check($getdir) {
 }
 
 ################################################################################
-# 새파일체크여부 반환
+# Return of File Checking
 ################################################################################
 
 function checknew_value($chkdir) {
@@ -125,7 +125,7 @@ function checknew_value($chkdir) {
 
 
 ################################################################################
-# 긴 제목을 줄여줌
+# Reduce a long title
 ################################################################################
 
 function cut_title($title){
@@ -142,7 +142,7 @@ function cut_title($title){
 				$title = str_replace($div, "", $title);
 			}
 			$title = str_replace("%3f", "?", $title);
-			$title = str_replace("(decensored)", "-무수정", $title);
+			$title = str_replace("(decensored)", /*"-무수정",*/ $title);
 			$title = preg_replace("/\[[^]]*\]/","",$title);
 			$nowdir = preg_replace("~\(.*\)~","",$nowdir);
 			$nowdir = preg_replace("/\[[^]]*\]/","",$nowdir);
