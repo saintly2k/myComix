@@ -4,7 +4,7 @@ session_start(["cache_expire"=> 43200, "gc_maxlifetime"=> 43200]);
 if($_POST['mode'] == "make_id"){
 if(is_dir("./src") === false){	
 	if (!mkdir("./src", 0777, true)) {
-		echo "<h1> src폴더 생성에 실패했습니다. 권한을 모두 777로 주었는지 확인하세요.</h1><br>";
+		echo "<h1> Failed to create src folder. Please check if you gave all the permissions to 777. </h1><br>";
 	}
 }
 	$user_file = "./src/user.php";
@@ -18,7 +18,7 @@ if(is_dir("./src") === false){
 	$json_output = "<?php ".$json_output." ?>";
 	file_put_contents($user_file, $json_output);
 	
-	echo $_POST['id']." / ".$_POST['group']."생성에 성공했습니다.<br> 3초후 이전화면으로 돌아갑니다.";
+	echo $_POST['id']." / ".$_POST['group']."Success!<br> You'll be redirected in 3 seconds.";
 	$prevPage = $_SERVER["HTTP_REFERER"];
 	echo("<meta http-equiv=\"refresh\" content=\"3; url=".$prevPage."\">"); 
 } elseif($_POST['mode'] == "login"){
@@ -69,7 +69,7 @@ if(is_file('./src/user.php') !== false) {
 ?>
 <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method = "post">
 	<div class="card" style="position: absolute; top:50%; left:50%; width:320px; margin-left:-160px; margin-top:-200px;">
-		<div class="card-header" onclick="location.replace('index.php');"><h2 style="font-family: 'Gugi';">마이코믹스</h2></div>
+		<div class="card-header" onclick="location.replace('index.php');"><h2 style="font-family: 'Gugi';">myComix</h2></div>
 		<br>
 		<div class="form-group card-body align-middle">
 			<input type="text" name="id" class="form-control mb-1 pb-2" placeholder="ID" required autofocus>
@@ -88,28 +88,28 @@ if(is_file('./src/user.php') !== false) {
 ?>
 <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method = "post">
 	<div class="card" style="position: absolute; top:50%; left:50%; width:320px; margin-left:-160px; margin-top:-200px;">
-		<div class="card-header" onclick="location.replace('index.php');"><h2 style="font-family: 'Gugi';">마이코믹스</h2></div>
-		<br>아이디가 있는 경우, 패스워드와 그룹 변경됨.
+		<div class="card-header" onclick="location.replace('index.php');"><h2 style="font-family: 'Gugi';">myComix</h2></div>
+		<br> If you have an ID, Password and Group Changed.
 		<div class="form-group card-body align-middle">
 			<input type="text" name="id" class="form-control mb-1 pb-2" placeholder="USER_ID" required autofocus>
 			<input type="password" name="pass" class="form-control mb-2 pb-2" placeholder="USER_Password" required>
 			<br>
 				<div class="custom-control custom-radio custom-control-inline">
 				  <input type="radio" class="custom-control-input" id="defaultInline1" name="group" value="admin" required>
-				  <label class="custom-control-label" for="defaultInline1">관리자</label>
+				  <label class="custom-control-label" for="defaultInline1">Admin Control Panel</label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline">
 				  <input type="radio" class="custom-control-input" id="defaultInline2" name="group" value="group1" required>
-				  <label class="custom-control-label" for="defaultInline2">1그룹</label>
+				  <label class="custom-control-label" for="defaultInline2"> Group 1 </label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline">
 				  <input type="radio" class="custom-control-input" id="defaultInline3" name="group" value="group2" required>
-				  <label class="custom-control-label" for="defaultInline3">2그룹</label>
+				  <label class="custom-control-label" for="defaultInline3"> Group 2 </label>
 				</div>
 			<input type="hidden" name="mode" value="make_id">
 		</div>
 		<div class="card-footer">
-		<button class="btn btn-primary btn-block" type="submit">사용자아이디생성</button>
+		<button class="btn btn-primary btn-block" type="submit"> User ID Generation </button>
 		</div>
 	</div>
 </form>
@@ -121,12 +121,12 @@ if(is_file('./src/user.php') !== false) {
 	}
 	}
 } else {
-//관리자 아이디 만드는 화면
+//Screen for creating the Admin Login.
 ?>
 <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method = "post">
 	<div class="card" style="position: absolute; top:50%; left:50%; width:320px; margin-left:-160px; margin-top:-200px;">
-		<div class="card-header" onclick="location.replace('index.php');"><h2 style="font-family: 'Gugi';">마이코믹스</h2></div>
-		<br>최초로 관리자 아이디를 생성합니다.
+		<div class="card-header" onclick="location.replace('index.php');"><h2 style="font-family: 'Gugi';">myComix</h2></div>
+		<br> Create an administrator Login for the first time.
 		<div class="form-group card-body align-middle">
 			<input type="text" name="id" class="form-control mb-1 pb-2" placeholder="Admin_ID" required autofocus>
 			<input type="password" name="pass" class="form-control mb-2 pb-2" placeholder="Admin_Password" required>
@@ -134,7 +134,7 @@ if(is_file('./src/user.php') !== false) {
 			<input type="hidden" name="mode" value="make_id">
 		</div>
 		<div class="card-footer">
-		<button class="btn btn-primary btn-block" type="submit">관리자 아이디 생성</button>
+		<button class="btn btn-primary btn-block" type="submit"> Create Admin Login </button>
 		</div>
 	</div>
 </form>
