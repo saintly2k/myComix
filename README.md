@@ -5,16 +5,16 @@
 <h2 id="phpcomicsviewer">PHP Comics Viewer</h2>
 
 <p><br>
-PHP7 이상 버전 및 php-zip, php-gd 설치된 웹서버 필요.</p>
+PHP7 and later versions and php-zip, php-gd installed webservers required.</p>
 
-<p>자신의 환경에 맞게 config.php 수정하라. 아래의 두가지 변수를 설정하면 된다.</p>
+<p>Modify config.php to suit your environment. You can set the two variables below.</p>
 
-<pre style="background-color: #DDDDDD;"><code class="php language-php">$base_dir = "/myComix"; //만화가 있는 절대경로
-$maxview = "18"; //한페이지에 보여줄 만화 갯수(폴더도 이 숫자만큼만 한 화면에서 보여진다)
+<pre style="background-color: #DDDDDD;"><code class="php language-php">$base_dir = "/myComix"; //Absolute path with comics
+$maxview = "18"; //Number of Mangas/Comics to show on one page (folders are shown on one screen only for this number)
 </code></pre>
 
-<p>아이폰 등 사파리 브라우저를 사용하는 경우, 뒤로가기/다른페이지로 이동 등을 눌러서는 자동북마크 저장이 되지 않는다.<br>
-홈으로 돌아가는 등 사파리를 백그라운드로 돌리면 북마크가 저장되므로, 가급적 수동으로 북마크 저장하기를 권한다.</p>
+<p>If you are using a safari browser such as an iPhone, you cannot save the automatic bookmark by clicking Go Back/Go To Other Pages.<br>
+If you turn the safari to the background, such as returning to home, the bookmark is stored, so it is recommended that you store the bookmark manually as much as possible.</p>
 
 <p><br></p>
 
@@ -22,68 +22,68 @@ $maxview = "18"; //한페이지에 보여줄 만화 갯수(폴더도 이 숫자�
 
 <p><br></p>
 
-<h2 id="">기능</h2>
+<h2 id="">Features</h2>
 
 <p></p>
 
 <ul>
-<li>두쪽 합쳐진 파일 쪼개보기</li>
+<li>Two-Sided File Split</li>
 </ul>
 <ul>
-<li>전체화면으로 슬라이드보기</li>
+<li>Slide to full screen</li>
 </ul>
 <ul>
-<li>웹툰형태 스크롤보기</li>
+<li>ScrollView Webtoon</li>
 </ul>
 <ul>
-<li>PDF 파일 보기</li>
+<li>Viewing PDF Files</li>
 </ul>
 <ul>
-<li>미압축 만화폴더 지원</li>
+<li>Support for uncompressed manga folders</li>
 </ul>
 <ul>
-<li>파일의 첫번째 이미지를 이용한 썸네일 지원</li>
+<li>Thumbnail support with first image of file</li>
 </ul>
 <ul>
-<li>폴더 썸네일 지원</li>
+<li>Folder Thumbnail Support</li>
 </ul>
 <ul>
-<li>수동 북마크 지원</li>
+<li>Manual bookmark support</li>
 </ul>
 <ul>
-<li>읽는 상태의 자동저장 지원</li>
+<li>Support for Automatic Storage in Reading</li>
 </ul>
 
 <p><br></p>
 
-<h2 id="">대표적인 문제</h2>
+<h2 id="">Typical Issues</h2>
 
 <p></p>
 
 <ul>
-<li>북마크나 썸네일 생성이 안되는 경우, 권한을 확인한다.</li>
+<li>If bookmark or thumbnail generation is not possible, check permissions.</li>
 </ul>
 
-<p>폴더에 쓰기권한이 있어야 썸네일을 생성할 수 있다. 대부분의 경우 707 내지 777을 주어야한다. <br />
-<code>chmod -R 777 /만화책폴더</code> <br />
-<code>chmod -R 777 /myComix폴더</code> <br />
+<p>You must have write permission on the folder to create a thumbnail. in most cases must be given 707 to 777 <br />
+<code>chmod -R 777 /YourComicFolder</code> <br />
+<code>chmod -R 777 /myComixFolder</code> <br />
 <br></p>
 
 <ul>
-<li>rclone 이용시 반응이 많이 느리다.</li>
+<li>The response is very slow when using rclone.</li>
 </ul>
 
-<p>하위폴더가 있는 폴더와 없는 폴더를 구분하기 위해 디렉토리확인이 잦기 때문. <br />
-썸네일 생성시에도 매우 느린데, 이 문제는 썸네일을 한번만 만들고나면 해결된다. <br />
-폴더 이름 앞에 "rclone_" 을 붙이거나, 관리자페이지에서 is_remote설정으로 썸네일 생성과 하위디렉토리 확인 예외설정이 가능하다. <br />
+<p>This is because directory checks are frequent to distinguish between folders with and without subfolders. <br />
+It is also very slow when generating thumbnails, but this problem is solved once you make them. <br />
+You can preface the folder name with "rclone_", or you can create a thumbnail and set a subdirectory confirmation exception with is_remote settings on the administrator page. <br />
 <br></p>
 
 <ul>
-<li>화면에 아무것도 뜨지 않는다.</li>
+<li>Nothing appears on the screen.</li>
 </ul>
 
-<p>이는 대부분 권한이 없거나, PHP모듈이 설치되어있지 않아 발생한다. <br />
-<code>php-zip</code>, <code>php-gd</code> 모듈이 로드되고 있는지 확인하라.</p>
+<p>This usually occurs because you do not have permission or the PHP module is not installed. <br />
+<code>php-zip</code>, check if the <code>php-gd</code> module is loading.</p>
 
 <p><br></p>
 
@@ -91,8 +91,8 @@ $maxview = "18"; //한페이지에 보여줄 만화 갯수(폴더도 이 숫자�
 
 <p><br></p>
 
-<h2 id="-1">업데이트 정보</h2>
-
+<h2 id="-1">Changelog</h2>
+<p>(I ain't gonna translate that sorry)
 <p><br></p>
 
 <ul>
